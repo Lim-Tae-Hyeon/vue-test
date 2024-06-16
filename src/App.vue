@@ -1,9 +1,9 @@
 <template>
   <div class="wrap">
-    <VueHearder msg="Welcome to Your Vue.js App"/>
+    <HeaderPage :class="isMenuOpened" msg="Welcome to Your Vue.js App" @toggleMenu="isMenuOpened = isMenuOpened == 'menuOff' ? '' : ''"/>
     <div class="container">
-      <VueLnb />
-      <div class="content">컨텐츠영역</div>
+      <LnbPage @toggleMenu="isMenuOpened = isMenuOpened == 'menuOff' ? '' : ''"/>
+      <ContentPage />
     </div>
   </div>
 </template>
@@ -11,14 +11,24 @@
 <script>
 import '@/assets/reset.css'
 // import HelloWorld from './components/HelloWorld.vue'
-import VueHearder from './components/VueHearder.vue';
-import VueLnb from './components/VueLnb.vue';
+import HeaderPage from './components/HeaderPage.vue';
+import LnbPage from './components/LnbPage.vue';
+import ContentPage from './components/ContentPage.vue';
 
 export default {
   name: 'App',
+  props: {
+    msg: String
+  },
+  data () {
+    return {
+      isMenuOpened : '',
+    }
+  },
   components: {
-    VueHearder,
-    VueLnb
+    HeaderPage,
+    LnbPage,
+    ContentPage,
   }
 }
 </script>
