@@ -1,11 +1,13 @@
 <template>
   <div class="contents">
-    ddd
+    <ModalPage />
   </div>
 </template>
 
-<script>
-
+<script setup>
+import '@/assets/reset.css'
+// import HelloWorld from './components/HelloWorld.vue'
+import ModalPage from './ModalPage.vue';
 </script>
 
 <style scoped>
